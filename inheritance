@@ -1,0 +1,143 @@
+import automobile.BMW;
+
+import automobile.Cars;
+
+
+public class InheritanceDemo {
+
+	
+public static void main(String[] args) {
+		
+int speed = 10;
+		
+		
+Cars c1 = new Cars(speed);
+		
+c1.increaseSpeed();
+		
+c1.publicSpeed = 10;
+		
+		
+BMW bmw1 = new BMW(speed);
+		
+bmw1.increaseSpeed();
+		
+bmw1.headupDisplayNavigation();
+	
+}
+
+}
+
+package automobile;
+
+
+public class BMW extends Cars {
+	
+	
+public BMW (int startSpeed) {
+		
+super(startSpeed);
+	
+}
+
+	
+@Override
+	
+public void increaseSpeed() {
+		
+protectedSpeed++;
+		
+Cars c1 = new Cars();
+		
+c1.decreaseSpeed();
+		
+System.out.println("Increasing Speed of BMW");
+	
+}
+	
+	
+public void headupDisplayNavigation() {
+		
+System.out.println("BMW Specific Functionality");
+	
+}
+	
+	
+public void stop() {
+		
+Cars c1 = new Cars();
+		
+c1.decreaseSpeed();
+	
+}
+}
+
+package automobile;
+
+
+public class Cars {
+	
+// No Modifier - accessible in the same package
+	int speed;
+	
+// Only in class
+	
+@SuppressWarnings("unused")
+	
+private int privateSpeed;
+	
+	
+// Anywhere in Java World with importing the package and class
+	public int publicSpeed;
+	
+	
+// In same package and in sub classes
+	
+protected int protectedSpeed;
+	
+	
+int speedLimit = 100 ;
+	
+	
+public Cars () {
+		
+this(0);
+	
+}
+	
+	
+public void setPrivateSpeed(int pSpeed) {
+		
+this.privateSpeed = pSpeed;
+	
+}
+
+	
+public Cars (int startSpeed) {
+		
+this.privateSpeed = startSpeed;
+	
+}
+		
+	
+public void increaseSpeed() {
+		
+if (speed < 100) {
+			
+speed++;
+		
+}
+		
+System.out.println("Increasing Speed of Cars ");
+	
+}
+	
+	
+protected void decreaseSpeed() {
+		
+speed--;
+		
+System.out.println("Decreasing Speed of Cars");
+	
+}
+}
